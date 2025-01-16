@@ -150,6 +150,8 @@ int WorldSocket::SendPacket(const WorldPacket& pkt)
 
     WorldPacket pct = pkt;
 
+    sLog.outWorldPacketDump(uint32(get_handle()), pct.GetOpcode(), pct.GetOpcodeName(), &pct, false);
+
     if (iSendPacket(pct) == -1)
     {
         WorldPacket* npct;
